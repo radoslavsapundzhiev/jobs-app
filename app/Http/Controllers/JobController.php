@@ -7,11 +7,19 @@ use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
-    //Show all jobs
+    //Get all jobs
     public function index()
     {
         return view('jobs.index', [
-            'jobs' => Job::all()
+            'jobs' => Job::latest()->filter(request(['tag', 'search']))->paginate(6)
+        ]);
+    }
+
+    //Get single job
+    public function show(Job $job)
+    {
+        return view('jobs.show', [
+            'job' => $job
         ]);
     }
 }

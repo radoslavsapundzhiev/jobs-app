@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// All Jobs
+// Get all jobs
 Route::get('/', [JobController::class, 'index']);
+
+// Get single job
+Route::get('/jobs/{job}', [JobController::class, 'show']);

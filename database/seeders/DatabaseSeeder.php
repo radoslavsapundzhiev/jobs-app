@@ -16,6 +16,6 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(5)->create();
 
-        Job::factory(6)->create();
+        Job::factory(12)->create();
     }
 }

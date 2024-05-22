@@ -1,12 +1,16 @@
 <x-layout>
     @include('partials._hero')
     @include('partials._search')
-    <div class="fixed-grid">
-        <div class="grid">
+    <div class="container">
+        <div class="fixed-grid">
             @unless(count($jobs) == 0)
-                @foreach($jobs as $job)
-                    <p>{{ $job->title }}</p>
-                @endforeach
+                <div class="grid">
+                    @foreach($jobs as $job)
+                        <div class="cell block">
+                            <x-job-card :job="$job"></x-job-card>
+                        </div>
+                    @endforeach
+                </div>
             @else
                 <p>No jobs found</p>
             @endunless

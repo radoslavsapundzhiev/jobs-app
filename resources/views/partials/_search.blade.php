@@ -4,7 +4,7 @@
     </div>
     <div class="control">
         <button class="button is-info">
-        Search
+            Search
         </button>
     </div>
 </div>

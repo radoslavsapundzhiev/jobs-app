@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
+    >
     <link rel="stylesheet" href="{{ asset('css/app.css')  }}" />
     <title>Jobs</title>
 </head>
@@ -16,7 +19,7 @@
         <nav class="navbar" role="navigation" aria-label="main navigation" x-data="{ isActive: false }">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">
-                    <img src="{{ asset('images/logo.png') }}" alt="logo" />
+                    <img src="{{ asset('images/logo.png') }}" alt="logo" class="is-rounded"/>
                 </a>
 
                 <a x-bind:class="isActive ? 'is-active' : ''" @click="isActive = !isActive" role="button"
@@ -33,7 +36,7 @@
                         class="navbar-item" 
                         href="/"
                     > 
-                        Home 
+                        Post Job
                     </a>
                 </div>
 
@@ -54,7 +57,7 @@
         <main class="column">
 
             {{$slot}}
-            
+
         </main>
 
         <footer class="column has-background-grey has-text-light is-narrow">
