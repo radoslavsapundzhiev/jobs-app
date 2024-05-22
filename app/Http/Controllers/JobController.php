@@ -8,9 +8,10 @@ use Illuminate\Http\Request;
 class JobController extends Controller
 {
     //Show all jobs
-    public function index() {
+    public function index()
+    {
         return view('jobs.index', [
-            'jobs' => Job::latest()->paginate(6)
+            'jobs' => Job::all()
         ]);
     }
 }

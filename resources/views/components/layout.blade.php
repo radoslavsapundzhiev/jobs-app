@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
     <link rel="stylesheet" href="{{ asset('css/app.css')  }}" />
-    <title>Jobs App</title>
+    <title>Jobs</title>
 </head>
 
 <body>
@@ -40,29 +40,28 @@
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
-                            <a class="button is-light">User: Pesho Peshov</a>
-                            <a href="" class="button is-light"><i class="fa-solid fa-door-closed"></i> Logout </a>
-                            <a href="" class="button is-light"><i class="fa-solid fa-user-plus"></i> Register </a>
-                            <a href="" class="button is-light"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login </a>
+                            <a class="button has-background-grey has-text-light">User: Pesho Peshov</a>
+                            <a href="" class="button has-background-grey has-text-light"><i class="fa-solid fa-door-closed"></i> Logout </a>
+                            <a href="" class="button has-background-grey has-text-light"><i class="fa-solid fa-user-plus"></i> Register </a>
+                            <a href="" class="button has-background-grey has-text-light"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login </a>
                         </div>
                     </div>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="block flex-wrapper">
-        <section class="hero is-fullwidth">
+    <div class="columns is-flex-direction-column is-fullheight-100vh">
+        <main class="column">
 
             {{$slot}}
             
-        </section>
+        </main>
 
         <footer class="column has-background-grey has-text-light is-narrow">
             <div class="content has-text-centered">
-              <small> Copyright © 2024 Jobs App. All Rights Reserved. </small>
+            <small> Copyright © 2024 Jobs App. All Rights Reserved. </small>
             </div>
         </footer>
-
     </div>
 </body>
 

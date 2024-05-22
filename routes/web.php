@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// All Jobs
 Route::get('/', [JobController::class, 'index']);
