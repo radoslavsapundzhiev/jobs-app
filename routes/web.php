@@ -20,5 +20,8 @@ Route::get('/', [JobController::class, 'index']);
 // Show create form
 Route::get('/jobs/create', [JobController::class, 'create']);
 
+// Store Job
+Route::post('/jobs', [JobController::class, 'store']);
+
 // Get single job
 Route::get('/jobs/{job}', [JobController::class, 'show']);
