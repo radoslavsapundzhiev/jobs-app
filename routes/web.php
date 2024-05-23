@@ -17,5 +17,8 @@ use Illuminate\Support\Facades\Route;
 // Get all jobs
 Route::get('/', [JobController::class, 'index']);
 
+// Show create form
+Route::get('/jobs/create', [JobController::class, 'create']);
+
 // Get single job
 Route::get('/jobs/{job}', [JobController::class, 'show']);

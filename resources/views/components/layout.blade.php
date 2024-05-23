@@ -34,7 +34,7 @@
                 <div class="navbar-start">
                     <a 
                         class="navbar-item" 
-                        href="/"
+                        href="/jobs/create"
                     > 
                         Post Job
                     </a>

@@ -22,4 +22,10 @@ class JobController extends Controller
             'job' => $job
         ]);
     }
+
+    //Show create form
+    public function create()
+    {
+        return view('jobs.create');
+    }
 }
