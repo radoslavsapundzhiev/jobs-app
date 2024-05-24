@@ -11,6 +11,7 @@
         href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
     >
     <link rel="stylesheet" href="{{ asset('css/app.css')  }}" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Jobs</title>
 </head>
 
