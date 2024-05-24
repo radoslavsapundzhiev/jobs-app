@@ -23,5 +23,8 @@ Route::get('/jobs/create', [JobController::class, 'create']);
 // Store Job
 Route::post('/jobs', [JobController::class, 'store']);
 
+// Show edit form
+Route::get('/jobs/{job}/edit', [JobController::class, 'edit']);
+
 // Get single job
 Route::get('/jobs/{job}', [JobController::class, 'show']);

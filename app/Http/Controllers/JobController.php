@@ -8,7 +8,7 @@ use Illuminate\Validation\Rule;
 
 class JobController extends Controller
 {
-    //Get all jobs
+    // Get all jobs
     public function index()
     {
         return view('jobs.index', [
@@ -16,7 +16,7 @@ class JobController extends Controller
         ]);
     }
 
-    //Get single job
+    // Get single job
     public function show(Job $job)
     {
         return view('jobs.show', [
@@ -24,13 +24,13 @@ class JobController extends Controller
         ]);
     }
 
-    //Show create form
+    // Show create form
     public function create()
     {
         return view('jobs.create');
     }
 
-    //Store job
+    // Store job
     public function store(Request $request)
     {
         $formFields = $request->validate([
@@ -50,5 +50,11 @@ class JobController extends Controller
         Job::create($formFields);
         
         return redirect('/')->with('message', 'Job created successfully!');
+    }
+
+    // Show edit form
+    public function edit(Job $job)
+    {
+        return view('jobs.edit', ['job' => $job]);
     }
 }

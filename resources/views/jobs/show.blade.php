@@ -26,6 +26,7 @@
                     <div class="buttons">
                         <a href="mailto:{{ $job->email }}" class="button is-link"><i class="fa-solid fa-envelope"></i> Contact employer</a>
                         <a href="{{ $job->website }}" target="_blank" class="button is-link"><i class="fa-solid fa-globe"></i> Visit website address</a>
+                        <a href="/jobs/{{$job->id}}/edit" class="button is-link"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                     </div>
                 </div>
             </div>
