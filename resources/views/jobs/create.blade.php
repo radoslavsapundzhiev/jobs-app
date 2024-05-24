@@ -4,7 +4,7 @@
             <p class="card-header-title">Post a job offer</p>
         </div>
         <div class="card-content">
-            <form action="" class="form">
+            <form action="/jobs" class="form" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="field">
                     <label class="label">Company</label>
