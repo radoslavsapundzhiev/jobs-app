@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JobController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,18 @@ Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
 
 // Get single job
 Route::get('/jobs/{job}', [JobController::class, 'show']);
+
+// Show register form
+Route::get('/register', [UserController::class, 'create']);
+
+// Create user
+Route::post('/users', [UserController::class, 'store']);
+
+// Logout user
+Route::post('/logout', [UserController::class, 'logout']);
+
+// Show login form
+Route::get('/login', [UserController::class, 'login'])->name('login');
+
+// Login user
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);

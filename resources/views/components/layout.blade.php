@@ -44,10 +44,17 @@
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
-                            <a class="button has-background-grey has-text-light">User: Pesho Peshov</a>
-                            <a href="" class="button has-background-grey has-text-light"><i class="fa-solid fa-door-closed"></i> Logout </a>
-                            <a href="" class="button has-background-grey has-text-light"><i class="fa-solid fa-user-plus"></i> Register </a>
-                            <a href="" class="button has-background-grey has-text-light"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login </a>
+                            @auth
+                                <a class="button has-background-grey has-text-light">Welcome: {{auth()->user()->name}}</a>
+                                <a href="/jobs/manage" class="button has-background-grey has-text-light"><i class="fa-solid fa-gear"></i> Manage </a>
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <button type="submit" class="button has-background-grey has-text-light"><i class="fa-solid fa-door-closed"></i> Logout </button>
+                                </form>
+                            @else
+                                <a href="/register" class="button has-background-grey has-text-light"><i class="fa-solid fa-user-plus"></i> Register </a>
+                                <a href="/login" class="button has-background-grey has-text-light"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login </a>
+                            @endauth
                         </div>
                     </div>
                 </div>
