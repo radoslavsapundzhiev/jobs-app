@@ -29,5 +29,8 @@ Route::get('/jobs/{job}/edit', [JobController::class, 'edit']);
 // Update job
 Route::put('/jobs/{job}', [JobController::class, 'update']);
 
+// Delete job
+Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
+
 // Get single job
 Route::get('/jobs/{job}', [JobController::class, 'show']);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Job;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 
 class JobController extends Controller
 {
@@ -78,5 +79,16 @@ class JobController extends Controller
         $job->update($formFields);
 
         return back()->with('message', 'Job updated successfully!');
+    }
+
+    // Delete job
+    public function destroy(Job $job)
+    {
+        if($job->logo && Storage::disk('public')->exists($job->logo)) {
+            Storage::disk('public')->delete($job->logo);
+        }
+
+        $job->delete();
+        return redirect('/')->with('message', 'Job deleted successfully!');
     }
 }
