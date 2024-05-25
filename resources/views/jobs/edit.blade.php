@@ -10,7 +10,7 @@
                 <div class="field">
                     <label class="label">Company</label>
                     <div class="control">
-                        <input class="input" type="text" name="company" value="{{ old('company') }}">
+                        <input class="input" type="text" name="company" value="{{ $job->company }}">
                     </div>
 
                     @error('company')
@@ -20,7 +20,7 @@
                 <div class="field">
                     <label class="label">Title</label>
                     <div class="control">
-                        <input class="input" type="text" name="title" value="{{ old('title') }}">
+                        <input class="input" type="text" name="title" value="{{ $job->title }}">
                     </div>
 
                     @error('title')
@@ -30,7 +30,7 @@
                 <div class="field">
                     <label class="label">Location</label>
                     <div class="control">
-                        <input class="input" type="text" name="location" value="{{ old('location') }}">
+                        <input class="input" type="text" name="location" value="{{ $job->location }}">
                     </div>
 
                     @error('location')
@@ -40,7 +40,7 @@
                 <div class="field">
                     <label class="label">Email</label>
                     <div class="control">
-                        <input class="input" type="text" name="email" value="{{ old('email') }}">
+                        <input class="input" type="text" name="email" value="{{ $job->email }}">
                     </div>
 
                     @error('email')
@@ -50,7 +50,7 @@
                 <div class="field">
                     <label class="label">Website</label>
                     <div class="control">
-                        <input class="input" type="text" name="website" value="{{ old('website') }}">
+                        <input class="input" type="text" name="website" value="{{ $job->website }}">
                     </div>
 
                     @error('website')
@@ -60,7 +60,7 @@
                 <div class="field">
                     <label class="label">Tags (Comma separated)</label>
                     <div class="control">
-                        <input class="input" type="text" name="tags" value="{{ old('tags') }}">
+                        <input class="input" type="text" name="tags" value="{{ $job->tags }}">
                     </div>
 
                     @error('tags')
@@ -69,9 +69,13 @@
                 </div>
                 <div class="field">
                     <label class="label">Logo</label>
-                    <div class="control">
-                        <input class="input" type="file" name="logo" value="{{ old('logo') }}">
+                    <div class="control block">
+                        <input class="input" type="file" name="logo">
                     </div>
+
+                    <p class="image is-64x64">
+                        <img src="{{ $job->logo ? asset('storage/' . $job->logo) : asset('/images/no-image.png') }}" />
+                    </p>
 
                     @error('logo')
                         <p class="has-text-danger">{{ $message }}</p>
@@ -85,7 +89,7 @@
                             placeholder="Job description"
                             rows="5"
                             name="description"
-                        >{{ old('description') }}</textarea>
+                        >{{ $job->description}}</textarea>
                     </div>
 
                     @error('description')
@@ -94,10 +98,10 @@
                 </div>
                 <div class="field is-grouped">
                     <div class="control">
-                        <button class="button is-link">Create</button>
+                        <button class="button is-link">Update</button>
                     </div>
                     <div class="control">
-                        <a href="/" class="button is-link is-light">Back</a>
+                        <a href="/jobs/{{$job->id}}" class="button is-link is-light">Back</a>
                     </div>
                 </div>
             </form>

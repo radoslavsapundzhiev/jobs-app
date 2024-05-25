@@ -26,5 +26,8 @@ Route::post('/jobs', [JobController::class, 'store']);
 // Show edit form
 Route::get('/jobs/{job}/edit', [JobController::class, 'edit']);
 
+// Update job
+Route::put('/jobs/{job}', [JobController::class, 'update']);
+
 // Get single job
 Route::get('/jobs/{job}', [JobController::class, 'show']);

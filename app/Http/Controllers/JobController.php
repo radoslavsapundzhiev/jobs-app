@@ -57,4 +57,26 @@ class JobController extends Controller
     {
         return view('jobs.edit', ['job' => $job]);
     }
+
+    // Update job
+    public function update(Request $request, Job $job)
+    {
+        $formFields = $request->validate([
+            'title' => 'required',
+            'company' => ['required'],
+            'location' => 'required',
+            'website' => 'required',
+            'email' => ['required', 'email'],
+            'tags' => 'required',
+            'description' => 'required'
+        ]);
+
+        if($request->hasFile('logo')) {
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        }
+
+        $job->update($formFields);
+
+        return back()->with('message', 'Job updated successfully!');
+    }
 }

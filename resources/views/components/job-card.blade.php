@@ -4,7 +4,7 @@
     <article class="media">
         <figure class="media-left">
             <p class="image is-64x64">
-            <img src="{{ $job->logo ? asset('storage/' . $job->logo) : asset('/images/no-image.png') }}" />
+                <img src="{{ $job->logo ? asset('storage/' . $job->logo) : asset('/images/no-image.png') }}" />
             </p>
         </figure>
         <div class="media-content">
