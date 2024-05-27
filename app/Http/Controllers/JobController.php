@@ -64,6 +64,10 @@ class JobController extends Controller
     // Update job
     public function update(Request $request, Job $job)
     {
+        if ($job->user_id != auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
+
         $formFields = $request->validate([
             'title' => 'required',
             'company' => ['required'],
@@ -86,6 +90,10 @@ class JobController extends Controller
     // Delete job
     public function destroy(Job $job)
     {
+        if ($job->user_id != auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
+
         if ($job->logo && Storage::disk('public')->exists($job->logo)) {
             Storage::disk('public')->delete($job->logo);
         }
