@@ -26,12 +26,6 @@
                     <div class="buttons">
                         <a href="mailto:{{ $job->email }}" class="button is-link"><i class="fa-solid fa-envelope"></i> Contact employer</a>
                         <a href="{{ $job->website }}" target="_blank" class="button is-link"><i class="fa-solid fa-globe"></i> Visit website address</a>
-                        <a href="/jobs/{{$job->id}}/edit" class="button is-link"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                        <form action="/jobs/{{$job->id}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="button is-danger has-text-white"><i class="fa-solid fa-trash"></i> Delete</button>
-                        </form>
                     </div>
                 </div>
             </div>

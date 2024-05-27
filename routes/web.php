@@ -33,6 +33,9 @@ Route::put('/jobs/{job}', [JobController::class, 'update'])->middleware('auth');
 // Delete job
 Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->middleware('auth');
 
+// Manage jobs
+Route::get('/jobs/manage', [JobController::class, 'manage'])->middleware('auth');
+
 // Get single job
 Route::get('/jobs/{job}', [JobController::class, 'show']);
 

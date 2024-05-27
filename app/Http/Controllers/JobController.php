@@ -44,12 +44,14 @@ class JobController extends Controller
             'description' => 'required'
         ]);
 
-        if($request->hasFile('logo')) {
+        if ($request->hasFile('logo')) {
             $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
+        $formFields['user_id'] = auth()->id();
+
         Job::create($formFields);
-        
+
         return redirect('/')->with('message', 'Job created successfully!');
     }
 
@@ -72,7 +74,7 @@ class JobController extends Controller
             'description' => 'required'
         ]);
 
-        if($request->hasFile('logo')) {
+        if ($request->hasFile('logo')) {
             $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
@@ -84,11 +86,17 @@ class JobController extends Controller
     // Delete job
     public function destroy(Job $job)
     {
-        if($job->logo && Storage::disk('public')->exists($job->logo)) {
+        if ($job->logo && Storage::disk('public')->exists($job->logo)) {
             Storage::disk('public')->delete($job->logo);
         }
 
         $job->delete();
         return redirect('/')->with('message', 'Job deleted successfully!');
+    }
+
+    // Manage jobs
+    public function manage()
+    {
+        return view('jobs.manage', ['jobs' => auth()->user()->jobs()->get()]);
     }
 }
